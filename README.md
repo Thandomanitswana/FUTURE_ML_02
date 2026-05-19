@@ -1,14 +1,15 @@
 # FUTURE_ML_02
-NLP model for support ticket classification and priority prediction
-# 📩 Support Ticket Classification & Priority Prediction System
+# NLP model for support ticket classification and priority prediction
+
 
 ## 🚀 Project Overview
-This project simulates a real-world support automation system that helps businesses automatically:
+This project builds a Machine Learning model to automatically classify customer support tickets and predict their priority.
 
-- Categorize incoming support tickets
-- Assign priority levels (Critical, High, Medium, Low)
+The goal is to help support teams:
 
-The goal is to improve response efficiency, reduce manual triage, and support faster decision-making in customer support operations.
+Respond faster to urgent issues
+Automatically route tickets
+Improve customer satisfaction
 
 ---
 
@@ -25,6 +26,7 @@ This system uses Machine Learning and NLP to assist in:
 
 ---
 
+
 ## ⚙️ How the System Works
 
 ### 1️⃣ Ticket Categorization (Classification Model)
@@ -35,7 +37,7 @@ The model analyzes ticket text (subject + description) and assigns it to a categ
 - Account Access
 - Refund Requests
 
-#### 🔍 How it decides:
+####  How it decides:
 - Uses **TF-IDF vectorization** to convert text into numerical features
 - Captures important keywords and phrases (e.g., "payment failed", "login error")
 - Applies a **Linear Support Vector Machine (LinearSVC)** to classify tickets
@@ -53,7 +55,7 @@ The system predicts how urgent a ticket is:
 - Medium
 - Low
 
-#### 🔍 How priority is decided:
+####  How priority is decided:
 The model uses a combination of:
 
 **Text signals**
@@ -67,9 +69,19 @@ The model uses a combination of:
 👉 In simple terms:
 > The model estimates urgency based on how the issue is described and contextual signals.
 
+## Ticket Category Classification
+
+Predicts:
+
+Billing inquiry
+Cancellation request
+Product inquiry
+Refund request
+Technical issue
+
 ---
 
-## 🛠️ Technical Implementation
+##  Technical Implementation
 
 - Python
 - Pandas
@@ -80,15 +92,26 @@ The model uses a combination of:
 
 ---
 
-## 🧹 Data Preprocessing
+##  Data Preprocessing
 
-- Lowercasing text
-- Removing punctuation and noise
-- Handling missing values
-- Feature engineering:
-  - Text length
-  - Urgency keyword detection
-- Encoding categorical variables
+The text data was cleaned using:
+
+Lowercasing
+Removal of punctuation
+Stopword removal
+
+A new feature full_text was created by combining:
+
+Ticket Description
+Cleaned text
+
+## Feature Engineering
+
+Text was converted into numerical format using:
+
+TF-IDF Vectorization
+
+This helps the model understand the importance of words in each ticket.
 
 ---
 
@@ -108,7 +131,7 @@ The model uses a combination of:
 
 ---
 
-## 📉 Key Insights (Very Important)
+##  Key Insights (Very Important)
 
 ### 1️⃣ Text alone is not enough
 Many tickets use similar language across different categories, making classification difficult.
@@ -130,7 +153,7 @@ The confusion matrix shows overlap between:
 
 ---
 
-## 🧠 Business Interpretation
+##  Business Interpretation
 
 If deployed in a real company, this system would:
 
@@ -141,7 +164,7 @@ If deployed in a real company, this system would:
 
 ---
 
-## 🚀 Future Improvements
+##  Future Improvements
 
 To make this production-ready:
 
@@ -159,6 +182,8 @@ To make this production-ready:
 ├── models/
 ├── README.md
 
+<img width="980" height="616" alt="Confusion matrix" src="https://github.com/user-attachments/assets/2e93b2d5-9c55-4376-958d-8ca718497bd7" />
+
 
 ---
 
@@ -167,7 +192,7 @@ Thando Manitswana
 
 ---
 
-## 🎯 Final Note
+##  Final Note
 This project demonstrates an end-to-end Machine Learning pipeline and highlights a key real-world lesson:
 
 > The biggest limitation in ML systems is often the data — not the model.
